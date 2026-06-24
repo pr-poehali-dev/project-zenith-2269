@@ -46,6 +46,32 @@ export function ServicesSection() {
             <ServiceCard key={i} service={service} index={i} isVisible={isVisible} />
           ))}
         </div>
+
+        <div
+          className={`mt-10 transition-all duration-700 md:mt-14 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+          style={{ transitionDelay: "600ms" }}
+        >
+          <p className="mb-3 font-mono text-xs text-foreground/60">/ Работаем по всей Московской области</p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Мытищи", "Сергиев Посад", "Щёлково", "Дмитров", "Пушкино", "Софрино", "Лесной",
+              "Красноармейск", "Ашукино", "Хотьково", "Лобня", "Абрамцево", "Огуднево",
+              "Свердловский", "Балашиха", "Реутов", "Люберцы", "Малаховка", "Жуковский",
+              "Раменское", "Бронницы", "Воскресенск", "Долгопрудный", "Зеленоград",
+              "Красногорск", "Путилково", "Апрелевка", "Голицыно", "Селятино", "Дедовск",
+              "Андреевка", "Сходня", "Менделеево", "Московская область",
+            ].map((region) => (
+              <span
+                key={region}
+                className="rounded-full border border-foreground/20 bg-foreground/5 px-3 py-1 font-mono text-xs text-foreground/70 backdrop-blur-sm transition-colors hover:border-foreground/40 hover:text-foreground/90"
+              >
+                {region}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
