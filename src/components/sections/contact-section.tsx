@@ -1,4 +1,4 @@
-import { Phone, MapPin } from "lucide-react"
+import { Phone, MapPin, MessageCircle } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { useState, type FormEvent } from "react"
 import { MagneticButton } from "@/components/magnetic-button"
@@ -66,6 +66,21 @@ export function ContactSection() {
                 <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
                   +7 (929) 954-39-99
                 </p>
+              </a>
+
+              <a
+                href="https://wa.me/79299543999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group inline-flex items-center gap-2 transition-all duration-700 ${
+                  isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
+                }`}
+                style={{ transitionDelay: "300ms" }}
+              >
+                <MessageCircle className="h-4 w-4 text-foreground/60 transition-colors group-hover:text-foreground" />
+                <span className="border-b border-foreground/30 font-mono text-sm text-foreground/80 transition-all group-hover:border-foreground group-hover:text-foreground">
+                  Написать в WhatsApp
+                </span>
               </a>
 
               <div
