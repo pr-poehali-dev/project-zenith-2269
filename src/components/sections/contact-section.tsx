@@ -12,21 +12,21 @@ export function ContactSection() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       return
     }
 
     setIsSubmitting(true)
 
-    // Simulate form submission (replace with actual API call later)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const text = `Новая заявка с сайта!\n\nИмя: ${formData.name}\nEmail: ${formData.email}\nСообщение: ${formData.message}`
+    const whatsappUrl = `https://wa.me/79299543999?text=${encodeURIComponent(text)}`
 
     setIsSubmitting(false)
     setSubmitSuccess(true)
     setFormData({ name: "", email: "", message: "" })
 
-    // Reset success message after 5 seconds
+    window.open(whatsappUrl, "_blank")
+
     setTimeout(() => setSubmitSuccess(false), 5000)
   }
 
@@ -165,7 +165,7 @@ export function ContactSection() {
                   size="lg"
                   className="w-full disabled:opacity-50"
                 >
-                  {isSubmitting ? "Отправка..." : "Отправить"}
+                  {isSubmitting ? "Отправка..." : "Отправить в WhatsApp"}
                 </MagneticButton>
                 {submitSuccess && (
                   <p className="mt-3 text-center font-mono text-sm text-foreground/80">Сообщение отправлено!</p>
